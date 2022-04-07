@@ -4,8 +4,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
-    meta: { title: 'Home' },
-    component: () => import('../views/Home.vue'),
+    meta: { title: 'Start' },
+    component: () => import('../views/Start.vue'),
+  },
+  {
+    path: '/notes',
+    meta: { title: 'Notes' },
+    component: () => import('../views/Notes.vue'),
   },
   {
     path: '/:page',

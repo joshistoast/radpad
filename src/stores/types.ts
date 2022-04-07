@@ -2,20 +2,23 @@
 // Theme
 export interface Themes {
   themes: Theme[],
-  activeTheme: Theme
 }
 
 export interface Theme {
+  id: string,
   name: string,
-  borderRadius: string,
+  canEdit: boolean,
   palette: {
-    accent: string,
+    text: string,
     background: string,
     foreground: string,
-    paragraph: string,
+    primary: string,
+    secondary: string,
+    accent: string,
+    muted: string,
+    elementBg: string,
+    elementBgHover: string,
   }
-  isDark: boolean,
-  active: boolean,
 }
 
 
@@ -115,28 +118,27 @@ export interface LoreBookCategory {
 
 // Notes
 export interface Notes {
-  notes: Note[],
-  noteFolders: NoteFolder[],
+  notes?: Note[],
+  noteFolders?: NoteFolder[],
 }
 
 export interface NoteFolder {
   id: string,
   name: string,
-  icon: Icon,
-  notes: Note[],
+  icon: string,
   createdAt: string,
   updatedAt: string,
-  pinnedNotes: Note[],
 }
 
 export interface Note {
   id: string,
   title: string,
   content: string,
-  pinned: boolean,
-  locked: boolean,
+  pinned?: boolean,
+  locked?: boolean,
   createdAt: string,
   updatedAt: string,
+  folderId?: string,
 }
 
 
@@ -162,6 +164,8 @@ export interface Task {
   completed: boolean,
   priority: number,
   url: string,
+  dueDate: string,
+  dueTime: string,
   tags: string[],
   createdAt: string,
   updatedAt: string,
